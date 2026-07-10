@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blas de Lezo Quant LLC</title>
+    <style>
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #07111E;
+            color: #E2E8F0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Layout Container */
+        .site-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        /* Responsive Header with Flexbox */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+            border-bottom: 1px solid #1E293B;
+            padding-bottom: 3rem;
+            margin-top: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand-logo {
+            width: 160px;
+            height: auto;
+            border-radius: 6px;
+            border: 2px solid #D4AF37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.03);
+        }
+
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: #FFFFFF;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #D4AF37;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+
+        /* Section Components */
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #94A3B8;
+            text-transform: uppercase;
+            border-left: 3px solid #D4AF37;
+            padding-left: 0.75rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .line-sub {
+            font-size: 1.1rem;
+            color: #D4AF37;
+            font-style: italic;
+            margin-top: -1rem;
+        }
+
+        p {
+            color: #CBD5E1;
+            font-size: 1.05rem;
+        }
+
+        /* Blockquote Styling */
+        blockquote {
+            background-color: #0F172A;
+            border-left: 4px solid #D4AF37;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #E2E8F0;
+        }
+
+        /* Flexbox Core Matrix Columns */
+        .matrix-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .matrix-branch {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: #0F172A;
+            padding: 2.5rem;
+            border-radius: 4px;
+            border: 1px solid #1E293B;
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            color: #CBD5E1;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #D4AF37;
+        }
+
+        li strong {
+            color: #FFFFFF;
+        }
+
+        /* Call To Action Card */
+        .download-box {
+            background-color: #1E293B;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border: 1px solid #334155;
+        }
+
+        .download-title {
+            font-weight: 700;
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+
+        .download-link {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            width: fit-content;
+        }
+
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Perimeter */
+        footer {
+            border-top: 1px solid #1E293B;
+            padding-top: 2.5rem;
+            margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .meta-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+
+        .secure-email {
+            color: #D4AF37;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 0.5rem;
+            width: fit-content;
+        }
+
+        .secure-email:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Screen Adjustments via Media Queries */
+        @media (min-width: 768px) {
+            body { padding: 4rem 2rem; }
+            header { flex-direction: row; text-align: left; gap: 3rem; }
+            .brand-logo { width: 180px; }
+            h1 { font-size: 3rem; }
+            .meta-grid { flex-direction: row; gap: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper">
+
+        <!-- Header Module -->
+        <header>
+            <div class="logo-container">
+                <!-- Verbatim link to the official firm asset layout -->
+                <img src="Logo_Blas_de_Lezo_Quant_LLC.jpg" alt="Blas de Lezo Quant LLC Shield" class="brand-logo">
+            </div>
+            <div class="header-text">
+                <h1>BLAS DE LEZO QUANT LLC</h1> <!--[cite: 2] -->
+                <div class="subtitle">Quantitative Software • Complex Networks • Intellectual Property Licensing</div> <!--[cite: 2] -->
+            </div>
+        </header>
+
+        <!-- Sovereign Mandate Section -->
+        <section>
+            <h2>The Sovereign Mandate</h2> <!--[cite: 2] -->
+            <blockquote>
+                "The world does not exist in a state of permanent equilibrium. Legacy models fail because they assume static harmony. We build for the fractures." <!--[cite: 2] -->
+            </blockquote>
+            <p>
+                Blas de Lezo Quant LLC is a premier proprietary intellectual property (IP) house and strategic advisory firm operating at the intersection of non-linear dynamics, advanced computational neuroscience, and adaptive economic frameworks. We do not participate in legacy institutional constraints; we design, engineer, and license autonomous software architectures and core mathematical assets designed to navigate, model, and capitalize on systemic instability. <!--[cite: 2] -->
+            </p>
+            <p>
+                We monetize our high-horizon research lines through exclusive corporate IP licensing structures and mathematically rigorous architectural consulting services. <!--[cite: 2] -->
+            </p>
+        </section>
+
+        <!-- Core Matrix Section -->
+        <section>
+            <h2>The Core Matrix</h2> <!--[cite: 2] -->
+            <p>The firm capitalizes on its research and monetizes its ecosystem across three highly synchronized operational pipelines:</p> <!--[cite: 2] -->
+            
+            <div class="matrix-container">
+                
+                <!-- Line 1 -->
+                <div class="matrix-branch">
+                    <h3>LINE 1: PROPRIETARY QUANTITATIVE SOFTWARE CORES</h3> <!--[cite: 2] -->
+                    <div class="line-sub">Institutional IP Licensing Rails</div> <!--[cite: 2] -->
+                    <p>
+                        We operate in an era of simultaneous macro-evolution where the global capital system is transitioning away from static frameworks toward fluid, digital asset infrastructure. In this hyper-accelerated landscape, traditional linear predictive models fail because they assume permanent equilibrium. <!--[cite: 2] -->
+                    </p>
+                    <p>
+                        The <strong>Blas de Lezo Quantitative Model</strong> is deployed exclusively as a proprietary software core available for institutional licensing. Moving completely away from rigid historical back-fitting, our framework treats market liquidity and asset pricing as an open, dynamic network. <!--[cite: 2] -->
+                    </p>
+                    <ul>
+                        <li><strong>Algorithmic Core Licensing:</strong> We license our proprietary non-linear software kernels and mathematical engine blocks to institutional counterparties, sovereign wealth funds, and asset managers looking to imbed advanced predictive modeling directly into their custom execution stacks. <!--[cite: 2] --></li>
+                        <li><strong>Dynamic Regime Mapping Modules:</strong> Our licensable API layers map the unassailable structural backbone of current market regimes in real-time, allowing licensees to transition seamlessly through macro shifts. <!--[cite: 2] --></li>
+                        <li><strong>Transient State Optimization:</strong> Classic financial frameworks assume a return to a permanent state of static equilibrium (the Nash model). Our licensed architecture is explicitly optimized to operate within these structural breaks, mapping the flow of liquidity when legacy systems stall. <!--[cite: 2] --></li>
+                    </ul>
+                    <div class="download-box">
+                        <div class="download-title">📄 TECHNICAL ARCHITECTURE & LICENSING BRIEFING</div> <!--[cite: 2] -->
+                        <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">For a comprehensive analysis of our non-linear dynamics framework, code core availability, and IP licensing tiers, our distributed briefing is available for institutional review:</p> <!--[cite: 2] -->
+                        <a href="Blas_de_Lezo_Quant_Engine_Technical_Briefing.pdf" class="download-link">[Download Technical Framework & Licensing Guide (PDF)]</a> <!--[cite: 2] -->
+                    </div>
+                </div>
+
+                <!-- Line 2 -->
+                <div class="matrix-branch">
+                    <h3>LINE 2: ARCHITECTURAL DIAGNOSTICS & CONSULTING SERVICES</h3> <!--[cite: 2] -->
+                    <div class="line-sub">The Multiplicative Paradigm Integration</div> <!--[cite: 2] -->
+                    <p>
+                        We do not provide standard, off-the-shelf IT support or generic corporate training. Our intervention line offers elite, mathematically rigorous tactical consulting services for enterprises encountering complex, non-linear structural challenges, while simultaneously licensing scalable educational IP to a new generation of technical leaders. <!--[cite: 2] -->
+                    </p>
+                    <ul>
+                        <li><strong>Complex Network Auditing & Noise Reduction Services:</strong> We deploy proprietary metric backbone optimization techniques to existing enterprise data pipelines as a premium consulting delivery. By stripping away up to 90% of non-essential relational noise while preserving 100% of the core structural dependencies, we radically streamline enterprise processing velocity. <!--[cite: 2] --></li>
+                        <li><strong>Non-Linear Risk Diagnostics & Regime Hardening:</strong> We provide bespoke advisory frameworks to stress-test enterprise predictive and computational networks against real-world departures from equilibrium, identifying the exact thresholds where corporate software or logic fractures. <!--[cite: 2] --></li>
+                        <li><strong>Socio-Educational IP Licensing (The Pedagogical Paradigm):</strong> Synthesizing advanced pedagogical portfolios, we design universally adaptive educational pathways that integrate advanced AI utilities directly into technical learning loops (Physics, Calculus, Python, Bash, etc). We license this proprietary educational methodology and software portfolio to global philanthropic foundations, non-profit networks, and international employment agencies to translate talent cultivation into exponential network dynamics. <!--[cite: 2] --></li>
+                    </ul>
+                </div>
+
+                <!-- Line 3 -->
+                <div class="matrix-branch">
+                    <h3>LINE 3: UPSTREAM RESEARCH & DEVELOPMENT</h3> <!--[cite: 2] -->
+                    <div class="line-sub">The Upstream IP Incubator</div> <!--[cite: 2] -->
+                    <p>
+                        Our research division acts as the primary upstream pipeline for the generation of future intellectual property. By exploring structural invariants, we engineer advanced frameworks that scale seamlessly from terrestrial complexities to the extreme variables of future multi-planetary expansion, creating a continuous pipeline of patent-ready architectures, core software libraries, and proprietary methodologies available for strategic commercial licensing. <!--[cite: 2] -->
+                    </p>
+                    <ul>
+                        <li><strong>Advanced Capital Frameworks & Interplanetary Liquidity Networks:</strong> Researching non-linear, topologically distributed liquidity models capable of operating asynchronously across extreme spatial distances, preserving capital and ensuring value transmission despite speed-of-light communication latency across planetary-scale telemetry lags. <!--[cite: 2] --></li>
+                        <li><strong>Associative AI & Edge-Autonomy (The Gödel-Turing Bridge):</strong> Constructing a mathematical bridge between Gödel’s incompleteness limits and Turing’s computability frameworks. Rooted in non-linear associative brain modeling, this architecture computes entirely at the edge, processing multi-layered environmental vectors via self-optimizing associative memories without requiring central data centers. <!--[cite: 2] --></li>
+                        <li><strong>Quantum Mechanics & Non-Linear Error Correction (QM&C):</strong> Researching mathematical optimization models that exploit structural backbones within quantum states to isolate, predict, and smooth out decoherence anomalies in real-time, stabilizing orbital quantum entanglement communication networks. <!--[cite: 2] --></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section>
+            <h2>The Operational Philosophy</h2> <!--[cite: 2] -->
+            <p>
+                We believe that true mathematical genius and sovereign execution thrive outside the constraints of legacy frameworks. Whether licensing core quantitative software engines, delivering elite structural consulting, or pioneering the IP of tomorrow, Blas de Lezo Quant LLC operates on a singular principle: Uncompromising, high-frequency autonomy.</strong> <!--[cite: 2] -->
+            </p>
+        </section>
+
+        <!-- Secure Gateway Footer -->
+        <footer>
+            <h2>The Secure Gateway</h2> <!--[cite: 2] -->
+            <p>Inquiries regarding corporate IP licensing agreements, strategic technical consulting services, or quantitative architectural diagnostics are handled exclusively through our secure corporate perimeter.</p> <!--[cite: 2] -->
+            
+            <div class="meta-grid">
+                <div><strong>Corporate Headquarters:</strong> Delaware, USA</div> <!--[cite: 2] -->
+                <div><strong>Operational Operations:</strong> Europe (Remote)</div> <!--[cite: 2] -->
+            </div>
+
+            <a href="mailto:tiagos@blasdelezoquant.com" class="secure-email">Secure Contact: tiagos@blasdelezoquant.com</a> <!--[cite: 2] -->
+        </footer>
+
+    </div>
+
+</body>
+</html>
